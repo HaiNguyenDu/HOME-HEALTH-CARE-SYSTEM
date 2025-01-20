@@ -4,11 +4,12 @@ import { HttpException } from "./handlers/http-exception-hanlde"
 import { errorHandler } from './handlers/error-handler';
 import { main_route } from './routers';
 import dotenv from "dotenv"
+import { env } from 'process';
 
 dotenv.config()
 
 const app: Application = express();
-const port: number = 3000;
+const port:string|number = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
